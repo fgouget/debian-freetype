@@ -1,0 +1,26 @@
+From 0a4d0849336815497e4a1302917f858f1417c175 Mon Sep 17 00:00:00 2001
+From: Laurent Bigonville <bigon@bigon.be>
+Date: Thu, 9 Mar 2017 00:41:35 +0100
+Subject: [PATCH] Revert "* builds/unix/unix-cc.in (LINK_LIBRARY): Use
+ `-export-symbols'."
+
+This reverts commit 771d3c8ae25d5042a3f6b76a329ad3dd782eca66.
+---
+ builds/unix/unix-cc.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/builds/unix/unix-cc.in b/builds/unix/unix-cc.in
+index a967cee9..5f09d0ff 100644
+--- a/builds/unix/unix-cc.in
++++ b/builds/unix/unix-cc.in
+@@ -109,6 +109,6 @@ CCexe        := $(CCraw_build)	# used to compile `apinames' only
+ LINK_LIBRARY = $(LIBTOOL) --mode=link $(CCraw) -o $@ $(OBJECTS_LIST) \
+                           -rpath $(libdir) -version-info $(version_info) \
+                           $(LDFLAGS) -no-undefined \
+-                          -export-symbols $(EXPORTS_LIST)
++                          # -export-symbols $(EXPORTS_LIST)
+ 
+ # EOF
+-- 
+2.11.0
+

@@ -1,20 +1,21 @@
-freetype (2.6.3-3.2) unstable; urgency=high
+freetype (2.7.1-0.1) experimental; urgency=medium
 
   * Non-maintainer upload.
-  * Better protect `flex' handling (CVE-2017-8105) (Closes: #861220)
-  * t1_builder_close_contour: Add safety guard (CVE-2017-8287)
-    (Closes: #861308)
+  * New upstream release (Closes: #837800)
+    - debian/patches-freetype, debian/patches-ft2demos: Refreshed
+    - Improve the recursive reference detector (Closes: #841029)
+    - Fix heap buffer overflow (Closes: #856971 CVE-2016-10244)
+  * d/p-freetype/Revert-builds-unix-unix-cc.in-LINK_LIBRARY-Use-expor.patch:
+    Revert upstream commit that added the -export-symbols option to libtool,
+    we need to review the symbols used in debian before we can hide the
+    private one.
+  * debian/libfreetype6.symbols: Make any application depending on private
+    symbols depend against an invalid package, this will help us to find out
+    which packages (if any) are abusing the API.
+  * debian/control: Remove duplicate Section to please lintian
+  * debian/control: Bump Standards-Version 3.9.8 (no further changes)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 27 Apr 2017 20:57:40 +0200
-
-freetype (2.6.3-3.1) unstable; urgency=medium
-
-  * Non-maintainer upload.
-  * CVE-2016-10244: Heap-buffer-overflow
-    src/type1/t1load.c (parse_charstrings): Reject fonts that don't contain
-    glyph names. (Closes: #856971)
-
- -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 30 Mar 2017 19:16:33 +0200
+ -- Laurent Bigonville <bigon@debian.org>  Sat, 11 Mar 2017 08:25:00 +0100
 
 freetype (2.6.3-3) unstable; urgency=medium
 

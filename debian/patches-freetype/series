@@ -3,6 +3,4 @@ freetype-2.1.7-backwards.compat.patch -p0
 enable-subpixel-rendering.patch
 enable-gxvalid-otvalid.patch
 verbose-libtool.patch
-CVE-2016-10244-type1-Fix-heap-buffer-overflow.patch
-CVE-2017-8105-psaux-Better-protect-flex-handling.patch
-CVE-2017-8287-src-psaux-psobjs.c-t1_builder_close_contour-Add-safe.patch
+Revert-builds-unix-unix-cc.in-LINK_LIBRARY-Use-expor.patch

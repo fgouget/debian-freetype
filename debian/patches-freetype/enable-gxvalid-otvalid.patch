@@ -7,23 +7,23 @@ Bug-Debian: http://bugs.debian.org/520879
 Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/freetype/+bug/239626
 Forwarded: not-needed
 
-Index: freetype-2.4.4/modules.cfg
+Index: freetype-2.7.1/modules.cfg
 ===================================================================
---- freetype-2.4.4.orig/modules.cfg
-+++ freetype-2.4.4/modules.cfg
-@@ -110,7 +110,7 @@
- AUX_MODULES += cache
- 
+--- freetype-2.7.1.orig/modules.cfg	2017-03-08 18:36:54.788962859 +0100
++++ freetype-2.7.1/modules.cfg	2017-03-08 18:37:21.477090060 +0100
+@@ -120,7 +120,7 @@
  # TrueType GX/AAT table validation.  Needs ftgxval.c below.
+ #
+ # No FT_CONFIG_OPTION_PIC support.
 -# AUX_MODULES += gxvalid
 +AUX_MODULES += gxvalid
  
  # Support for streams compressed with gzip (files with suffix .gz).
  #
-@@ -124,7 +124,7 @@
- 
+@@ -143,7 +143,7 @@
  # OpenType table validation.  Needs ftotval.c below.
  #
+ # No FT_CONFIG_OPTION_PIC support.
 -# AUX_MODULES += otvalid
 +AUX_MODULES += otvalid
  

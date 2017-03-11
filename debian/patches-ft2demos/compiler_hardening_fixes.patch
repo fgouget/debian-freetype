@@ -1,8 +1,8 @@
-Index: ft2demos-2.6.3/src/ftcommon.c
+Index: ft2demos-2.7.1/src/ftcommon.c
 ===================================================================
---- ft2demos-2.6.3.orig/src/ftcommon.c
-+++ ft2demos-2.6.3/src/ftcommon.c
-@@ -439,6 +439,7 @@
+--- ft2demos-2.7.1.orig/src/ftcommon.c	2017-03-08 18:40:51.094083299 +0100
++++ ft2demos-2.7.1/src/ftcommon.c	2017-03-08 18:40:51.090083281 +0100
+@@ -444,6 +444,7 @@
  
            if ( file == NULL )  /* shouldn't happen */
            {
@@ -10,11 +10,11 @@ Index: ft2demos-2.6.3/src/ftcommon.c
              free( font );
              return FT_Err_Invalid_Argument;
            }
-Index: ft2demos-2.6.3/src/ftdiff.c
+Index: ft2demos-2.7.1/src/ftdiff.c
 ===================================================================
---- ft2demos-2.6.3.orig/src/ftdiff.c
-+++ ft2demos-2.6.3/src/ftdiff.c
-@@ -1502,7 +1502,13 @@
+--- ft2demos-2.7.1.orig/src/ftdiff.c	2017-03-08 18:40:51.094083299 +0100
++++ ft2demos-2.7.1/src/ftdiff.c	2017-03-08 18:40:51.090083281 +0100
+@@ -1544,7 +1544,13 @@
  
          if ( text != NULL )
          {

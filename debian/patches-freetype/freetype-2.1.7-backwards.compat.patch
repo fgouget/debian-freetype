@@ -1,7 +1,7 @@
 Index: src/base/ftapi.c
 ===================================================================
---- src/base/ftapi.c.orig
-+++ src/base/ftapi.c
+--- src/base/ftapi.c.orig	2017-03-08 18:37:50.289227174 +0100
++++ src/base/ftapi.c	2017-03-08 18:37:50.285227155 +0100
 @@ -118,4 +118,18 @@
    }
  
@@ -23,13 +23,13 @@ Index: src/base/ftapi.c
  /* END */
 Index: src/base/ftbase.c
 ===================================================================
---- src/base/ftbase.c.orig
-+++ src/base/ftbase.c
-@@ -33,6 +33,7 @@
+--- src/base/ftbase.c.orig	2017-03-08 18:37:50.289227174 +0100
++++ src/base/ftbase.c	2017-03-08 18:37:50.285227155 +0100
+@@ -34,6 +34,7 @@
  #include "ftstream.c"
  #include "fttrigon.c"
  #include "ftutil.c"
 +#include "ftapi.c"
  
- #if defined( FT_MACINTOSH ) && !defined ( DARWIN_NO_CARBON )
+ #ifdef FT_MACINTOSH
  #include "ftmac.c"
