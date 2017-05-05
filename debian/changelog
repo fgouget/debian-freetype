@@ -1,3 +1,13 @@
+freetype (2.5.2-3+ma1) jessie; urgency=medium
+
+  [ Francois Gouget ]
+  * Fix multiarch support in the development package.
+    - ftconfig.h is architecture-dependent so move it to the proper
+      architecture-specific directory and replace it with an
+      architecture-independent trampoline.
+
+ -- Francois Gouget <fgouget@codeweavers.com>  Wed, 07 May 2017 03:14:15 +0100
+
 freetype (2.5.2-3+deb8u2) jessie-security; urgency=high
 
   * Non-maintainer upload by the Security Team.

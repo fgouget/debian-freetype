@@ -1,0 +1,37 @@
+#!/bin/sh
+
+arch="$1"
+incdir="$2"
+subdir="$3"
+header="$4"
+
+name0=`basename "$0"`
+usage()
+{
+    if [ -n "$1" ]
+    then
+        echo "$name0:error:" "$@" >&2
+        echo
+    fi
+    echo "Usage: $name0 <arch> <incdir> <subdir> <header>"
+    echo
+    echo "Moves the header to the architecture-specific directory and"
+    echo "replaces it with an architecture-independent trampoline header."
+    [ -n "$1" ] && exit 1
+    exit 0
+}
+
+[ "$arch" = "--help" -o "$arch" = "-h" ] && usage
+[ -n "$arch" ] || usage "you must specify the current architecture"
+[ -n "$incdir" ] || usage "you must specify the base include directory"
+[ -n "$header" ] || usage "you must specify the header to replace"
+[ -f "$incdir/$subdir/$header" ] || \
+    usage "'$incdir/$subdir/$header' is not a header file"
+[ ! -e "$incdir/$arch/$subdir/$header" ] || \
+    usage "'$incdir/$arch/$subdir/$header' already exists"
+
+set -e
+mkdir -p "$incdir/$arch/$subdir"
+mv "$incdir/$subdir/$header" "$incdir/$arch/$subdir/$header"
+sed -e "s,@subdir@,$subdir," -e "s,@header@,$header," \
+    debian/multiarch.h.in >"$incdir/$subdir/$header"

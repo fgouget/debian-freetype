@@ -96,6 +96,9 @@ override_dh_auto_install:
 	    cp -av `find $(ft2demos_u)/bin -type f -perm -u=x -maxdepth 1` \
 		$(CURDIR)/debian/$(demospkg)/usr/bin/
 	sed -i -e'/dependency_libs/s/'.*'//' debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libfreetype.la
+	# Fix ftconfig.h for MultiArch
+	sh debian/gen_multiarch_header $(DEB_HOST_MULTIARCH) \
+	    debian/tmp/usr/include freetype2/config ftconfig.h
 
 override_dh_install:
 	dh_install --fail-missing
