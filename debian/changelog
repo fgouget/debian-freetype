@@ -1,10 +1,14 @@
 freetype (2.7.1-0.1+ma1) unstable; urgency=medium
 
   [ Francois Gouget ]
-  * Fix multiarch support in the development package.
+  * Fix multiarch support in the development package. (Closes: #666761)
     - ftconfig.h is architecture-dependent so move it to the proper
       architecture-specific directory and replace it with an
       architecture-independent trampoline.
+    - freetype-config is architecture-dependent so move it to a separate
+      multiarch=foreign package: libfreetype6-dev-bin.
+    - freetype-config is deprecated but still recommend libfreetype6-dev-bin
+      from libfreetype6-dev for backward compatibility.
 
  -- Francois Gouget <fgouget@codeweavers.com>  Wed, 07 May 2017 03:14:15 +0100
 
