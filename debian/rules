@@ -96,6 +96,9 @@ ifneq (,$(filter $(demospkg), $(shell dh_listpackages)))
 		$(CURDIR)/debian/$(demospkg)/usr/bin/
 endif
 	sed -i -e'/dependency_libs/s/'.*'//' debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libfreetype.la
+	# Fix ftconfig.h for MultiArch
+	sh debian/gen_multiarch_header $(DEB_HOST_MULTIARCH) \
+	    debian/tmp/usr/include freetype2/freetype/config ftconfig.h
 
 override_dh_install:
 	dh_install --fail-missing

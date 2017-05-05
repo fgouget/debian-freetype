@@ -1,3 +1,13 @@
+freetype (2.6.3-3.2+ma1) stretch; urgency=medium
+
+  [ Francois Gouget ]
+  * Fix multiarch support in the development package.
+    - ftconfig.h is architecture-dependent so move it to the proper
+      architecture-specific directory and replace it with an
+      architecture-independent trampoline.
+
+ -- Francois Gouget <fgouget@codeweavers.com>  Wed, 07 May 2017 03:14:15 +0100
+
 freetype (2.6.3-3.2) unstable; urgency=high
 
   * Non-maintainer upload.
