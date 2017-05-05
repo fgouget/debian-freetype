@@ -50,6 +50,8 @@ Package: libfreetype6-dev
 Architecture: any
 Section: libdevel
 Depends: libfreetype6 (= ${binary:Version}), libc6-dev | libc-dev, zlib1g-dev | libz-dev, libpng-dev, ${misc:Depends}
+Recommends: libfreetype6-dev-bin (= ${binary:Version})
+Multi-Arch: same
 Description: FreeType 2 font engine, development files
  The FreeType project is a team of volunteers who develop free,
  portable and high-quality software solutions for digital typography. 
@@ -59,6 +61,23 @@ Description: FreeType 2 font engine, development files
  This package contains all supplementary files (static library, headers
  and documentation) you need to develop your own programs using the
  FreeType 2 library.
+
+Package: libfreetype6-dev-bin
+Section: libdevel
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Breaks: libfreetype6-dev (<< ${binary:Version})
+Replaces: libfreetype6-dev (<< ${binary:Version})
+Multi-Arch: foreign
+Description: Development utilities for the FreeType 2 font engine
+ The FreeType project is a team of volunteers who develop free,
+ portable and high-quality software solutions for digital typography. 
+ They specifically target embedded systems and focus on bringing small,
+ efficient and ubiquitous products.
+ .
+ This package provides the freetype-config development tool for backward
+ compatibility. Note that freetype-config does not deal nicely with
+ multiarch and has thus been deprecated in favor of pkg-config.
 
 Package: freetype2-demos
 Architecture: any
